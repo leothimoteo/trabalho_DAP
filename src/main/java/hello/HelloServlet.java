@@ -120,15 +120,21 @@ public class HelloServlet extends HttpServlet {
         try {
 			idade = qualEMinhaIdade(request, local);
 			
-			if (idade < 50) {
-				faixa_etaria = "cringe";
+			if (idade > 60) {
+				faixa_etaria = "BabyBoomer";
+			}
+			else if (idade > 40 && idade <= 60) {
+				faixa_etaria = "X";
+			}
+			else if (idade > 25 && idade <= 40) {
+				faixa_etaria = "Millenium";
 			}
 			else
 			{
-				faixa_etaria = "outro";
+				faixa_etaria = "Z";
 			}
 		} catch (Exception e) {
-			throw new RuntimeException("Data não informada, você deve informar a data!!!");
+			throw new RuntimeException("Data não informada. Por favor, informe a data.");
 		}
         
         response.setContentType("text/html;charset=UTF-8");
@@ -143,7 +149,7 @@ public class HelloServlet extends HttpServlet {
             out.println("<h1>Servlet HelloServlet</h1>");
             out.println("<p>" + msg + "</p>");
             out.println("<p>" + Cumprimento.getCumprimento() + "</p>");
-            out.println("<p>mudou mesmooo testandoo blabla agora vai novo novo novo " + faixa_etaria +" anos</p>");
+            out.println("<p>Você tem" + idade + " anos e pertence a Geração: " + faixa_etaria +"</p>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -185,13 +191,13 @@ public class HelloServlet extends HttpServlet {
                 msg = "Hallo, ";
                 cumprimento = new Cumprimento("Guten morgen", "Guten tag", "Gute nacht");
                 break;
-            case "es":
-            	msg = "Hola, ";
-            	cumprimento = new Cumprimento("Buen día", "Buenas tardes", "Buenas noches");
+            case "nl":
+            	msg = "Hoi, ";
+            	cumprimento = new Cumprimento("Goedemorgen", "Goedenmiddag", "Welterusten");
             	break;
-            case "it":
-            	msg = "Ciao, ";
-            	cumprimento = new Cumprimento("Buongiorno", "Buon pomeriggio", "Buona Notte");
+            case "ru":
+            	msg = "Привет, ";
+            	cumprimento = new Cumprimento("Доброе утро", "Добрый день", "спокойной ночи");
                 break;
         }
 		return msg;

@@ -149,7 +149,7 @@ public class HelloServlet extends HttpServlet {
             out.println("<h1>Servlet HelloServlet</h1>");
             out.println("<p>" + msg + "</p>");
             out.println("<p>" + Cumprimento.getCumprimento() + "</p>");
-            out.println("<p>Você tem" + idade + " anos e pertence a Geração: " + faixa_etaria +"</p>");
+            out.println("<p>Você tem " + idade + " anos e pertence a Geração: " + faixa_etaria +"</p>");
             out.println("</body>");
             out.println("</html>");
         }
